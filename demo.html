@@ -9,33 +9,38 @@
     class cat {
         name;
         health;
-        constructor(name,hea) {
+
+        constructor(name, hea) {
             this.name = name;
             this.health = hea;
-        }
-        scratch (mouse){
-            if ( mouse === 'jerry'){
-                this.health -= 1;
-            }
         }
 
-    }
-    class  mouse {
-        name;
-        health;
-        constructor(name,hea) {
-            this.name = name;
-            this.health = hea;
-        }
-        trick (cat){
-            if ( cat.name === 'tom' || cat.name === 'oggy'){
-                cat.health -= 2
+        scratch(mouse) {
+            if (mouse.name === 'jerry') {
+                return mouse.health -= 1;
             }
         }
     }
+
+    class mouse {
+        name;
+        health;
+
+        constructor(name, hea) {
+            this.name = name;
+            this.health = hea;
+        }
+
+        trick(cat) {
+            if (cat.name === 'tom' || cat.name === 'oggy') {
+                return cat.health -= 2;
+            }
+        }
+    }
+
     let cat1 = new cat('tom', 10);
     let cat2 = new cat('oggy', 10);
-    let mouse1 = new mouse('jerry',10);
+    let mouse1 = new mouse('jerry', 10);
     cat1.scratch(mouse1)
     console.log(mouse1.health)
 </script>
