@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let MyData = function (day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.getDay = function () {
+            return this.day;
+        }
+        this.getMonth = function () {
+            return this.month;
+        }
+        this.getYear = function () {
+            return this.year;
+        }
+        this.setDay = function (day) {
+            this.day = day;
+        }
+        this.setMonth = function (month) {
+            this.month = month;
+        }
+        this.setYear = function (year) {
+            this.year = year;
+        }
+        this.setData = function (day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+        this.toString = function () {
+            document.write('ngày: ' + this.day + ' Tháng: ' + this.month + ' năm: ' + this.year)
+        }
+
+    };
+    let data = new MyData(2, 2, 2007);
+    data.setDay(11);
+    data.setMonth(10);
+    data.setYear(2020);
+    let day = data.getDay();
+    let month = data.getMonth();
+    let year = data.getYear();
+    alert(day + "/" + month + "/" + year);
+    //data.setData(11, 11, 2021);
+    //data.toString()
+
+</script>
+</body>
+</html>
