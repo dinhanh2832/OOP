@@ -9,14 +9,16 @@
     class cat {
         name;
         health;
+        type;
 
         constructor(name, hea) {
             this.name = name;
             this.health = hea;
+            this.type = 'mèo'
         }
 
         scratch(mouse) {
-            if (mouse.name === 'jerry') {
+            if (mouse.type === 'chuột') {
                 return mouse.health -= 1;
             }
         }
@@ -25,14 +27,16 @@
     class mouse {
         name;
         health;
+        type;
 
         constructor(name, hea) {
             this.name = name;
             this.health = hea;
+            this.type = 'chuột'
         }
 
         trick(cat) {
-            if (cat.name === 'tom' || cat.name === 'oggy') {
+            if (cat.type === 'mèo') {
                 return cat.health -= 2;
             }
         }
@@ -40,9 +44,11 @@
 
     let cat1 = new cat('tom', 10);
     let cat2 = new cat('oggy', 10);
-    let mouse1 = new mouse('jerry', 10);
+    let mouse1 = new mouse('jerr', 10);
     cat1.scratch(mouse1)
     console.log(mouse1.health)
+    cat1.scratch(cat2)
+    console.log(cat2.health)
 </script>
 </body>
 </html>

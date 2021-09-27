@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        status;
+        name;
+        battery;
+        messenger;
+        messengerTo;
+        messengersent;
+
+        constructor(name, battery, mesTo, mesSent) {
+            this.name = name;
+            this.status = true;
+            this.battery = battery;
+            this.messenger = '';
+            this.messengerTo = mesTo;
+            this.messengersent = mesSent;
+        }
+
+        texting(mess) {
+            if (this.status) {
+                this.messenger = mess;
+                this.battery--;
+            }
+        }
+
+        sendMessenger(mess, mobile) {
+            if (this.status) {
+                mobile.texting(mess);
+                mobile.messengerTo += mess + '\n';
+                this.messengersent += mess + '\n';
+                this.battery--;
+            }
+        }
+
+        watchMessTo() {
+            if (this.status) {
+                this.battery--;
+                return this.messengerTo;
+            }
+        }
+
+        watchMessSent() {
+            if (this.status) {
+                this.battery--;
+                return this.messengersent;
+            }
+        }
+
+        getBattery() {
+            if (this.status) {
+                return this.battery;
+            }
+        }
+
+        turnON() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+        getStatus(){
+            return this.status;
+        }
+
+    }
+
+    let ip = new Mobile('ip13', 100, [], []);
+    let ip2 = new Mobile('ip14', 100, [], []);
+    let ss = new Mobile('ss11', 100, [], []);
+    ip.turnON();
+    ip2.turnOff()
+    ip.sendMessenger('ahihi', ss);
+    ip2.sendMessenger('hello', ss);
+    let mess = ss.watchMessTo();
+    console.log(mess)
+    let mesSent = ip.watchMessSent()
+    console.log(mesSent)
+</script>
+</body>
+</html>

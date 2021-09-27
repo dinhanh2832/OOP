@@ -5,33 +5,31 @@
     <title>Title</title>
 </head>
 <body>
+<canvas id="Canvas" width="900px" height="500px" style="border: 1px solid black"></canvas>
 <script>
-    class Studen {
-        name;
-        point;
-        constructor(name,point) {
-            this.name = name;
-            this.point = point;
+    class  Rectangle {
+        wigth;
+        height;
+        constructor(a,b) {
+            this.wigth = +a;
+            this.height = +b;
         }
-        dowork (score){
-            this.point += score;
+        perimeter(){
+           let  per = (this.height + this.wigth )*2;
         }
-        donote (score){
-            this.point += score;
+        area(){
+            let are = this.height*this.wigth;
         }
-        givepoints (p1,score){
-            p1.point += score;
-            this.point -= score
+        result(x,y){
+            let ctx = document.getElementById("Canvas").getContext("2d");
+            let rectangule = new Rectangle(this.wigth,this.height);
+            ctx.fillRect(x, y, rectangule.wigth, rectangule.height);
         }
-        getinfor(){
-            return this.name + " có " + this.point + ' điểm  '
-        }
+
     }
-    let pp1 = new Studen('A',10);
-    let pp2 = new Studen('B',10);
-    pp1.givepoints(pp2,10);
-    document.write(pp1.getinfor());
-    document.write(pp2.getinfor());
+    let hcn = new Rectangle(200,50);
+    hcn.result(200,150)
+
 </script>
 </body>
 </html>

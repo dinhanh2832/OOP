@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class convert {
+        poison;
+        constructor(c) {
+            this.poison = c;
+        }
+        convertF(){
+            return (9/5)*this.poison + 32;
+        }
+        convertK(){
+            return this.poison + 273
+        }
+        result (){
+            document.write('độ F: ' + this.convertF() + ' độ K: ' + this.convertK())
+        }
+
+    }
+    let c = new convert(30);
+    c.result();
+</script>
+</body>
+</html>

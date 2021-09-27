@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Humen {
+        name;
+        weihgt;
+        gender;
+
+        constructor(name,weight,gender) {
+            this.name = name;
+            this.weihgt = weight;
+            this.gender = gender;
+        }
+        eat(apple){
+            this.weihgt += 1;
+            apple.weight -= 1
+        }
+        getWeight(){
+            return this.weihgt;
+        }
+        setWeight(weight){
+            this.weihgt = weight;
+        }
+    }
+    class Apple {
+        weight;
+        constructor() {
+            this.weight = 10
+        }
+        getWeight() {
+         return this.weight;
+        }
+    }
+    let adam = new Humen('Adam',70,'nam') ;
+    let eva = new Humen('Eva',50,'nữ');
+    let apple = new Apple();
+    adam.eat(apple);
+    adam.eat(apple);
+    eva.eat(apple);
+    console.log(apple.getWeight())
+    console.log(adam.getWeight())
+
+</script>
+</body>
+</html>
