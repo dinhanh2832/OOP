@@ -14,13 +14,13 @@
         messengerTo;
         messengersent;
 
-        constructor(name, battery, mesTo, mesSent) {
+        constructor(name, battery) {
             this.name = name;
             this.status = true;
             this.battery = battery;
             this.messenger = '';
-            this.messengerTo = mesTo;
-            this.messengersent = mesSent;
+            this.messengerTo = [];
+            this.messengersent = [];
         }
 
         texting(mess) {
@@ -33,8 +33,8 @@
         sendMessenger(mess, mobile) {
             if (this.status) {
                 mobile.texting(mess);
-                mobile.messengerTo += mess + '\n';
-                this.messengersent += mess + '\n';
+                mobile.messengerTo.push(mess);
+                this.messengersent.push(mess);
                 this.battery--;
             }
         }
@@ -76,13 +76,17 @@
     let ip2 = new Mobile('ip14', 100, [], []);
     let ss = new Mobile('ss11', 100, [], []);
     ip.turnON();
-    ip2.turnOff()
+    ip2.turnON()
     ip.sendMessenger('ahihi', ss);
     ip2.sendMessenger('hello', ss);
     let mess = ss.watchMessTo();
-    console.log(mess)
+    for(let i =0;i < mess.length;i++){
+        console.log(mess[i]);
+    }
     let mesSent = ip.watchMessSent()
-    console.log(mesSent)
+    for(let i =0;i < mesSent.length;i++){
+        console.log(mesSent[i]);
+    }
 </script>
 </body>
 </html>

@@ -23,7 +23,9 @@
         result(x,y){
             let ctx = document.getElementById("Canvas").getContext("2d");
             let rectangule = new Rectangle(this.wigth,this.height);
+            ctx.beginPath()
             ctx.fillRect(x, y, rectangule.wigth, rectangule.height);
+            ctx.closePath()
         }
 
     }
