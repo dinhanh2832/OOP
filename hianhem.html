@@ -38,7 +38,8 @@
         getRandomColor(){
             let blue = this.getRandomHex();
             let gren = this.getRandomHex();
-            return "rgb("+blue+","+gren+")"
+            let xxx = this.getRandomHex()
+            return "rgb(" + blue + "," + gren + "," + xxx + ")";
         }
 
         drawCanvas() {
@@ -46,8 +47,10 @@
             let x = Math.random() * window.innerWidth;
             let y = Math.random() * window.innerHeight;
             let color = this.getRandomColor();
+            ctx.beginPath()
             ctx.fillStyle = color;
             ctx.fillRect(x, y, this.width, this.height)
+            ctx.closePath()
         }
     }
 
