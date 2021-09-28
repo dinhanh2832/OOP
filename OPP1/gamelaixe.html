@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<canvas id="cv" width="600px" height="400px" style="border: 1px solid blue"></canvas>
+<p>
+    <button onclick="moveLeft()">Left</button>
+    <button onclick="moveRight()">Right</button>
+    <button onclick="moveUp()">Up</button>
+    <button onclick="moveDown()">Down</button>
+</p>
+<body>
+<script>
+    class Oto {
+        x;
+        y;
+        speedX;
+        speedY;
+        point;
+
+        constructor(x, y,speedX,speedY) {
+            this.x = x;
+            this.y = y;
+            this.speedX = speedX;
+            this.speedY = speedY;
+            this.point = 10;
+        }
+        moveLeft(){
+            this.x -= this.speedX;
+            this.check()
+        }
+        moveRight(){
+            this.x += this.speedX;
+            this.check()
+        }
+        moveDown(){
+            this.y += this.speedY;
+            this.check()
+        }
+        moveUp(){
+            this.y -= this.speedY;
+            this.check()
+        }
+        check(){
+            if(this.x + ){
+                alert('game over')
+            }
+        }
+        draw(ctx) {
+            let h = this.x
+            let k = this.y
+            let img = new Image()
+            ctx.beginPath();
+            img.onload = function() {
+                ctx.drawImage(img, h, k,100,50);
+            }
+            img.src="oto.jpg"
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+    class Obstacle{
+        x;
+        y;
+        constructor(x,y) {
+            this.x = x;
+            this.y = y;
+        }
+        draw(){
+            let ctx2 = document.getElementById('cv').getContext('2d');
+            ctx2.beginPath();
+            ctx2.rect(this.x, this.y, 50 ,50 );
+            ctx2.fill();
+            ctx2.closePath();
+        }
+    }
+    let cnv1 = new Obstacle(200,300);
+    cnv1.draw()
+    let ctx = document.getElementById('cv').getContext('2d');
+    let oto = new Oto(20,20,10,10);
+    oto.draw(ctx)
+    function myCanvas() {
+        oto.draw(ctx)
+    }
+    function moveRight() {
+        ctx.clearRect(0, 0, 600, 400);
+        oto.moveRight()
+        oto.draw(ctx)
+        cnv1.draw()
+    }
+    function moveDown() {
+        ctx.clearRect(0, 0, 600,400 );
+        oto.moveDown()
+        oto.draw(ctx)
+        cnv1.draw()
+    }
+    function moveLeft() {
+        ctx.clearRect(0, 0, 600,400 );
+        oto.moveLeft()
+        oto.draw(ctx)
+        cnv1.draw()
+    }
+    function moveUp() {
+        ctx.clearRect(0, 0, 600,400 );
+        oto.moveUp()
+        oto.draw(ctx)
+        cnv1.draw()
+    }
+
+
+</script>
+</body>
+</html>

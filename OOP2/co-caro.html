@@ -6,7 +6,7 @@
 </head>
 <body>
 <button onclick="start()">Start</button>
-<p id="game-board"></p>
+<div id="game-board"></div>
 <script>
     let defaultSize = 40;
     let defRow = 10;
@@ -29,21 +29,21 @@
         getHtml() {
             let top = this.x * defaultSize;
             let left = this.y * defaultSize;
-            let cellHtml = '<p id="sell-' + this.x + '-' + this.y + '" onclick="play(' + this.x + ',' + this.y + ')" ' +
+            let cellHtml = '<div id="sell-' + this.x + '-' + this.y + '" onclick="play(' + this.x + ',' + this.y + ')" ' +
                 'style="position: absolute; width: ' + defaultSize + 'px; height: ' + defaultSize + 'px;' +
                 'left: ' + left + 'px;top: ' + top + 'px;' +
-                'line-height: ' + defaultSize + 'px;"></p>'
+                'line-height: ' + defaultSize + 'px; border: 1px solid blue"></div>'
             return cellHtml;
         }
 
         draw() {
-            let cellDiv = document.getElementById("cell-" + i + "-" + j)
+            let cellDiv = document.getElementById("cell-" + this.x + "-" + this.y)
             switch (this.valueEMPTY) {
                 case orderX:
-                    cellDiv.innerHTML = 'X'
+                    cellDiv.innerHTML = 'X';
                     break;
                 case orderO:
-                    cellDiv.innerHTML = 'O'
+                    cellDiv.innerHTML = 'O';
                     break;
                 default:
                     cellDiv.innerHTML = "";
@@ -63,7 +63,7 @@
             this.rows = rows;
             this.cols = cols;
             this.id = id;
-            this.turn = orderX;
+            this.turn = orderO;
             this.cells = [];
             this.Over = false;
         }
@@ -82,19 +82,19 @@
             }
         }
 
-        play(i, j) {
+        play(x, y) {
             if (this.Over) {
                 return;
             }
-            let cell = this.cells[i][j];
-            if (cell.value === valueEMPTY) {
-                cell.value = this.turn;
+            let cell = this.cells[x][y];
+            if (cell.valueEMPTY === valueEMPTY) {
+                cell.valueEMPTY = this.turn;
                 cell.draw();
-                this.check(i, j);
+                this.check(x, y);
                 if (this.turn === orderO) {
                     this.turn = orderX;
                 } else {
-                    this.turn = VALUE_O;
+                    this.turn = orderO;
                 }
             } else {
                 alert('Ô này đã được đánh')

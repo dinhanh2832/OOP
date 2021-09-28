@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class MOUSE {
+        name;
+        weight;
+        speed;
+        status;
+        constructor(name,weight,speed,status){
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+        isLiving(){
+            return this.status === 'living'
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(weight){
+            this.weight = weight;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        getSatus(){
+            return this.status;
+        }
+        setSatus(status){
+            this.status = status;
+        }
+    }
+    class CAT{
+        name;
+        speed;
+        weight;
+        constructor(name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+        checkSpeed(mouse){
+            return this.speed > mouse.speed;
+        }
+        eat(mouse){
+            if (this.checkSpeed()){
+                if(mouse.isLiving()){
+                    this.weight += 1;
+                    mouse.weight -= 1;
+                } else {
+                    alert('chuột chết mọe ròi')
+                }
+            }
+
+        }
+        getWeight(){
+            return this.weight;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        getName
+
+    }
+
+</script>
+</body>
+</html>
