@@ -26,17 +26,26 @@
             this.speedX = speedX;
             this.speedY = speedY;
             this.point = 10;
+            this.defaultSpeedX = speedX;
+            this.defaultSpeedY = speedY;
         }
         moveLeft(){
+
             this.x -= this.speedX;
             this.check()
         }
         moveRight(){
+            this.x = this.speedX;
             this.x += this.speedX;
+            this.y = 0;
+            this.y += this.speedY;
             this.check()
         }
         moveDown(){
+            this.y = this.defaultSpeedY;
             this.y += this.speedY;
+            this.x = 0
+            this.x += this.speedX;
             this.check()
         }
         moveUp(){

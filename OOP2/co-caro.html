@@ -37,13 +37,13 @@
         }
 
         draw() {
-            let cellDiv = document.getElementById("cell-" + this.x + "-" + this.y)
+            let cellDiv = document.getElementById('sell-' + this.x + '-' + this.y)
             switch (this.valueEMPTY) {
                 case orderX:
-                    cellDiv.innerHTML = 'X';
+                    cellDiv.innerHTML = "X";
                     break;
                 case orderO:
-                    cellDiv.innerHTML = 'O';
+                    cellDiv.innerHTML = "O";
                     break;
                 default:
                     cellDiv.innerHTML = "";
