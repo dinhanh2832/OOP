@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<canvas id="cv" width="600px" height="400px" style="border: 1px solid blue"></canvas>
+<canvas id="cv" width="900px" height="600px" style="border: 1px solid blue"></canvas>
 <p>
     <button onclick="moveLeft()">Left</button>
     <button onclick="moveRight()">Right</button>
@@ -43,9 +43,15 @@
             this.y -= this.speedY;
             this.check()
         }
-        check(){
-            if(this.x + ){
-                alert('game over')
+        check() {
+            if ((100 <= this.x && this.x <= 350 && this.y === 250)||
+                (this.x === 100 && 250 <= this.y && this.y <= 350)||
+                (100 <= this.x && this.x <= 350 && this.y === 350)||
+                (this.x === 350 && 250 <= this.y && this.y <= 350)){
+
+                setTimeout(()=>{
+                    alert('game over')
+                }, 300)
             }
         }
         draw(ctx) {
@@ -85,29 +91,30 @@
         oto.draw(ctx)
     }
     function moveRight() {
-        ctx.clearRect(0, 0, 600, 400);
+        ctx.clearRect(0, 0, 900, 600);
         oto.moveRight()
         oto.draw(ctx)
         cnv1.draw()
     }
     function moveDown() {
-        ctx.clearRect(0, 0, 600,400 );
+        ctx.clearRect(0, 0, 900, 600);
         oto.moveDown()
         oto.draw(ctx)
         cnv1.draw()
     }
     function moveLeft() {
-        ctx.clearRect(0, 0, 600,400 );
+        ctx.clearRect(0, 0, 900, 600);
         oto.moveLeft()
         oto.draw(ctx)
         cnv1.draw()
     }
     function moveUp() {
-        ctx.clearRect(0, 0, 600,400 );
+        ctx.clearRect(0, 0, 900, 600);
         oto.moveUp()
         oto.draw(ctx)
         cnv1.draw()
     }
+
 
 
 </script>
